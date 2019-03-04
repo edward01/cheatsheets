@@ -1,0 +1,1039 @@
+<!--
+    hero: https://bulma.io/documentation/layout/hero/
+    section: https://bulma.io/documentation/layout/section/
+    image: https://bulma.io/documentation/elements/image/
+    columns: https://bulma.io/documentation/columns/basics/
+    media: https://bulma.io/documentation/layout/media-object/
+    icon: https://bulma.io/documentation/elements/icon/
+    breadcrumb: https://bulma.io/documentation/components/breadcrumb/
+    level: https://bulma.io/documentation/layout/level/
+-->
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- button -->
+<a class="button is-primary">
+  Button
+</a>
+  <!-- syntax -->
+  is-primary
+  is-link
+  is-info
+  is-success
+  is-warning
+  is-danger
+
+  <!-- sizes -->
+  is-small
+  is-medium
+  is-large
+  is-fullwidth
+
+  <!-- style -->
+  is-outlined
+  is-loading
+  is-inverted
+  is-rounded
+  is-static
+  [disabled]
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- ------------------- -->
+<!-- helpers -->
+<!-- ------------------- -->
+  Float
+    is-clearfix       Fixes an element's floating children
+    is-pulled-left    Moves an element to the left
+    is-pulled-right   Moves an element to the right
+  Spacing
+    is-marginless     Removes any margin
+    is-paddingless    Removes any padding
+  Other
+    is-overlay        Completely covers the first positioned parent
+    is-clipped        Adds overflow hidden
+    is-radiusless     Removes any radius
+    is-shadowless     Removes any shadow
+    is-unselectable   Prevents the text from being selectable
+    is-invisible      Adds visibility hidden
+    is-sr-only        Hide elements visually but keep the element available to be announced by a screen reader
+
+  <!-- display classes -->
+    block
+    flex
+    inline
+    inline-block
+    inline-flex
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- ------------------- -->
+<!-- color helpers  -->
+<!-- ------------------- -->
+  has-text-white            hsl(0, 0%, 100%)
+  has-text-black            hsl(0, 0%, 4%)
+  has-text-light            hsl(0, 0%, 96%)
+  has-text-dark             hsl(0, 0%, 21%)
+  has-text-primary          hsl(171, 100%, 41%)
+  has-text-info             hsl(204, 86%, 53%)
+  has-text-link             hsl(217, 71%, 53%)
+  has-text-success          hsl(141, 71%, 48%)
+  has-text-warning          hsl(48, 100%, 67%)
+  has-text-danger           hsl(348, 100%, 61%)
+  has-text-black-bis        hsl(0, 0%, 7%)
+  has-text-black-ter        hsl(0, 0%, 14%)
+  has-text-grey-darker      hsl(0, 0%, 21%)
+  has-text-grey-dark        hsl(0, 0%, 29%)
+  has-text-grey             hsl(0, 0%, 48%)
+  has-text-grey-light       hsl(0, 0%, 71%)
+  has-text-grey-lighter     hsl(0, 0%, 86%)
+  has-text-white-ter        hsl(0, 0%, 96%)
+  has-text-white-bis        hsl(0, 0%, 98%)
+
+  <!-- background -->
+  has-background-white         hsl(0, 0%, 100%)
+  has-background-black         hsl(0, 0%, 4%)
+  has-background-light         hsl(0, 0%, 96%)
+  has-background-dark          hsl(0, 0%, 21%)
+  has-background-primary       hsl(171, 100%, 41%)
+  has-background-info          hsl(204, 86%, 53%)
+  has-background-link          hsl(217, 71%, 53%)
+  has-background-success       hsl(141, 71%, 48%)
+  has-background-warning       hsl(48, 100%, 67%)
+  has-background-danger        hsl(348, 100%, 61%)
+  has-background-black-bis     hsl(0, 0%, 7%)
+  has-background-black-ter     hsl(0, 0%, 14%)
+  has-background-grey-darker   hsl(0, 0%, 21%)
+  has-background-grey-dark     hsl(0, 0%, 29%)
+  has-background-grey          hsl(0, 0%, 48%)
+  has-background-grey-light    hsl(0, 0%, 71%)
+  has-background-grey-lighter  hsl(0, 0%, 86%)
+  has-background-white-ter     hsl(0, 0%, 96%)
+  has-background-white-bis     hsl(0, 0%, 98%)
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- ------------------- -->
+<!-- typography -->
+<!-- ------------------- -->
+  is-size-1     3rem
+  is-size-2     2.5rem
+  is-size-3     2rem
+  is-size-4     1.5rem
+  is-size-5     1.25rem
+  is-size-6     1rem
+  is-size-7     0.75rem
+
+  <!-- responsive size  -->
+    is-size-1-mobile
+    is-size-1-tablet
+    is-size-1-touch
+    is-size-1-desktop
+    is-size-1-widescreen
+    is-size-1-fullhd
+    ...
+
+  <!-- alignment   -->
+    has-text-centered     Makes the text centered
+    has-text-justified    Makes the text justified
+    has-text-left         Makes the text aligned to the left
+    has-text-right        Makes the text aligned to the right
+
+    has-text-left-mobile
+    has-text-left-tablet
+    has-text-left-tablet-only
+    ...
+
+  <!-- text transformation   -->
+    is-capitalized    Transforms the first character of each word to uppercase
+    is-lowercase      Transforms all characters to lowercase
+    is-uppercase      Transforms all characters to uppercase
+    is-italic         Transforms all characters to italic
+
+  <!-- text weight -->
+    has-text-weight-light     Transforms text weight to light
+    has-text-weight-normal    Transforms text weight to normal
+    has-text-weight-semibold  Transforms text weight to semi-bold
+    has-text-weight-bold      Transforms text weight to bold
+
+  <!-- font family   -->
+    is-family-sans-serif    Sets font family to $family-sans-serif
+    is-family-monospace     Sets font family to $family-monospace
+    is-family-primary       Sets font family to $family-primary
+    is-family-secondary     Sets font family to $family-secondary
+    is-family-code          Sets font family to $family-code
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- ------------------- -->
+<!-- columns -->
+<!-- ------------------- -->
+<!-- columns: https://bulma.io/documentation/columns/basics/ -->
+<div class="columns">
+    <div class="column">
+        <!-- ... -->
+    </div>
+</div>
+
+  is-mobile
+  is-gapless
+  is-centered
+  is-vcentered
+  is-multiline
+
+  <!-- sizes -->
+  is-three-quarters
+  is-two-thirds
+  is-half
+  is-one-third
+  is-one-quarter
+  is-full
+
+  is-four-fifths
+  is-three-fifths
+  is-two-fifths
+  is-one-fifth
+
+  <!-- offset -->
+  is-offset-8
+  is-offset-one-quarter
+  is-offset-one-fifth
+
+  <!-- narrow column -->
+  .is-narrow-mobile
+  .is-narrow-tablet
+  .is-narrow-touch
+  .is-narrow-desktop
+  .is-narrow-widescreen
+  .is-narrow-fullhd
+
+  <!-- responsiveness -->
+  is-mobile
+  is-tablet
+  is-touch
+  is-desktop
+  is-widescreen
+  is-fullhd
+  <!-- example -->
+  <div class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- container -->
+<!-- https://bulma.io/documentation/layout/container/ -->
+<div class="container">
+  <!-- ... -->
+</div>
+
+  is-fluid
+  is-widescreen
+  is-fullhd
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- level: https://bulma.io/documentation/layout/level/ -->
+<div class="level">
+  <div class="level-left">  <!-- Left side -->
+    <div class="level-item">
+      <!-- ... -->
+    </div>
+    <div class="level-item">
+      <!-- ... -->
+    </div>
+  </div>
+  <div class="level-right"> <!-- Right side -->
+    <p class="level-item"><!-- ... --></p>
+    <p class="level-item"><!-- ... --></p>
+  </div>
+</div>
+
+  <!-- level -->
+    is-mobile
+  <!-- level-item -->
+    has-text-centered
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- media: https://bulma.io/documentation/layout/media-object/ -->
+<article class="media">
+    <figure class="media-left">
+        <!-- ... -->
+    </figure>
+    <div class="media-content">
+        <div class="content">
+            <!-- ... -->
+        </div>
+    </div>
+    <figure class="media-right">
+        <!-- ... -->
+    </figure>
+</article>
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- hero: https://bulma.io/documentation/layout/hero/ -->
+<section class="hero">
+    <div class="hero-body">
+        <!-- ... -->
+    </div>
+</section>
+
+  <!-- hero -->
+  is-primary
+  is-info
+  is-light
+  is-dark
+  ...
+
+  <!-- add gradient -->
+  is-bold
+
+  <!-- sizes -->
+  is-medium
+  is-large
+  is-fullheight
+
+  <!-- If you are using a fixed navbar, you can use the is-fullheight-with-navbar modifier on the hero for it to occupy the viewport height minus the navbar height. -->
+  <!-- https://bulma.io/documentation/layout/hero/#fullheight-with-navbar -->
+  is-fullheight-with-navbar
+
+  <!-- Fullheight hero in 3 parts -->
+  <section class="hero is-primary is-medium">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+      <nav class="navbar">
+        <!-- ... -->
+      </nav>
+    </div>
+    <!-- Hero content: will be in the middle -->
+    <div class="hero-body">
+      <!-- ... -->
+    </div>
+    <!-- Hero footer: will stick at the bottom -->
+    <div class="hero-foot">
+      <!-- <nav class="tabs">
+      </nav> -->
+    </div>
+  </section>
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- section: https://bulma.io/documentation/layout/section/ -->
+<section class="section">
+    <div class="container">
+        <!-- ... -->
+    </div>
+</section>
+
+  <!-- spacing -->
+  is-medium
+  is-large
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- footer: https://bulma.io/documentation/layout/footer/ -->
+<footer class="footer">
+  <!-- ... -->
+</footer>
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- tiles: https://bulma.io/documentation/layout/tiles/ -->
+<div class="tile">
+  <!-- The magical tile element! -->
+</div>
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- form: https://bulma.io/documentation/form/general/ -->
+<div class="field">
+  <label class="label">Label</label>
+  <div class="control">
+    <input class="input" type="text" placeholder="Text input">
+  </div>
+  <p class="help">This is a help text</p>
+</div>
+<!-- or with icon -->
+<div class="field">
+  <label class="label">Username</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-success" type="text" placeholder="Text input" value="bulma">
+    <span class="icon is-small is-left">
+      <i class="fas fa-user"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-check"></i>
+    </span>
+  </div>
+  <p class="help is-success">This username is available</p>
+</div>
+
+  .label
+  .input
+  .textarea
+  .select
+  .checkbox
+  .radio
+  .button
+  .help
+
+  <!-- disabled fields -->
+  <fieldset disabled>
+    <div class="field">
+      <label class="label">Name</label>
+      <div class="control"> <input class="input" type="text" placeholder="e.g Alex Smith"> </div>
+    </div>
+  </fieldset>
+
+  <!-- spacing -->
+  field
+  control
+
+  <!-- With icons -->
+  icon is-left  -- if has-icons-left is used
+  icon is-right -- if has-icons-right is used
+
+  <!-- form addons -->
+  <div class="field has-addons">
+    <div class="control">
+      <input class="input" type="text" placeholder="Find a repository">
+    </div>
+    <div class="control">
+      <a class="button is-info"> Search </a>
+    </div>
+  </div>
+  <!-- or -->
+  <div class="field has-addons">
+    <p class="control">
+      <input class="input" type="text" placeholder="Your email">
+    </p>
+    <p class="control">
+      <a class="button is-static"> @gmail.com </a>
+    </p>
+  </div>
+
+  is-expanded
+  is-fullwidth
+  has-addons-centered
+  has-addons-right
+
+  <!-- form group -->
+  <div class="field is-grouped">
+    <p class="control">
+      <a class="button is-primary"> Submit </a>
+    </p>
+    <p class="control">
+      <a class="button is-light"> Cancel </a>
+    </p>
+  </div>
+
+  is-grouped-centered
+  is-grouped-right
+  is-grouped-multiline
+
+  <!-- horizontal form: https://bulma.io/documentation/form/general/#horizontal-form -->
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">From</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <p class="control is-expanded has-icons-left">
+          <input class="input" type="text" placeholder="Name">
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control is-expanded has-icons-left has-icons-right">
+          <input class="input is-success" type="email" placeholder="Email" value="alex@smith.com">
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-check"></i>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- input: https://bulma.io/documentation/form/input/ -->
+<div class="field">
+  <div class="control">
+    <input class="input is-primary" type="text" placeholder="Primary input">
+  </div>
+</div>
+
+  <!-- colors -->
+  is-primary
+  is-info
+  ...
+
+  <!-- sizes -->
+  is-small
+  is-normal
+  is-medium
+  is-large
+
+  <!-- rounded -->
+  is-rounded
+
+  <!-- states -->
+  is-hovered
+  is-focused
+  is-loading
+
+  <!-- readonly -->
+  is-static
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- textarea: https://bulma.io/documentation/form/textarea/ -->
+<div class="field">
+  <div class="control">
+    <textarea class="textarea is-primary" placeholder="Primary textarea"></textarea>
+  </div>
+</div>
+
+  is-small
+  <!-- normal -->
+  is-medium
+  is-large
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- select: https://bulma.io/documentation/form/select/ -->
+<div class="field">
+  <div class="control">
+    <div class="select is-primary">
+      <select>
+        <option>Select dropdown</option>
+        <option>With options</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+  is-multiple
+  is-primary
+  is-info
+  ...
+
+  <!-- styles -->
+  select.is-rounded
+
+  <!-- sizes -->
+  select.is-small
+    .medium
+    .large
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- checkbox -->
+<label class="checkbox">
+  <input type="checkbox">
+  Remember me
+</label>
+
+<!-- radio -->
+<div class="control">
+  <label class="radio">
+    <input type="radio" name="foobar">
+    Foo
+  </label>
+  <label class="radio">
+    <input type="radio" name="foobar" checked>
+    Bar
+  </label>
+</div>
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- file: https://bulma.io/documentation/form/file/ -->
+<div class="file">
+  <label class="file-label">
+    <input class="file-input" type="file" name="resume">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Choose a file…
+      </span>
+    </span>
+  </label>
+</div>
+
+  <!-- color -->
+  is-white
+  is-black
+  is-light
+  is-dark
+  is-primary
+  is-link
+  is-info
+  is-success
+  is-warning
+  is-danger
+
+  <!-- sizes -->
+  .is-small
+  .is-medium
+  .is-large
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- box: https://bulma.io/documentation/elements/box/ -->
+<div class="box">
+  <!-- ... -->
+</div>
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- delete icon -->
+<a class="delete"></a>
+  is-small
+  is-medium
+  is-large
+
+<!-- icon -->
+<span class="icon has-text-info">
+  <i class="fas fa-info-circle"></i>
+</span>
+  is-small
+  is-medium
+  is-large
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- image: https://bulma.io/documentation/elements/image/ -->
+<figure class="image is-128x128">
+    <img src="https://bulma.io/images/placeholders/128x128.png">
+</figure>
+  image is-16x16
+  image is-24x24
+  image is-32x32
+  image is-48x48
+  image is-64x64
+  image is-96x96
+  image is-128x128
+
+  <!-- rounded -->
+  img.is-rounded
+
+  <!-- responsive -->
+  image is-square
+  image is-1by1
+  image is-5by4
+  image is-4by3
+  image is-3by2
+  image is-5by3
+  image is-16by9
+  image is-2by1
+  image is-3by1
+  image is-4by5
+  image is-3by4
+  image is-2by3
+  image is-3by5
+  image is-9by16
+  image is-1by2
+  image is-1by3
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- notification -->
+<div class="notification is-primary">
+  <button class="delete"></button>
+  <!-- ... -->
+</div>
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- progress bar -->
+<progress class="progress is-primary" value="15" max="100">15%</progress>
+  is-small
+  is-medium
+  is-large
+
+  <!-- indeterminate -->
+  * dont set the 'value' attribute
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- table -->
+  is-bordered
+  is-striped
+  is-narrow
+  is-hoverable
+  is-fullwidth
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- tag: https://bulma.io/documentation/elements/tag/  -->
+<span class="tag is-black">Black</span>
+<!-- or -->
+<span class="tag is-success">
+  Bar
+  <button class="delete is-small"></button>
+</span>
+
+  is-black
+  is-dark
+  is-light
+  is-white
+  is-primary
+  ...
+
+  is-normal
+  is-medium
+  is-large
+  is-rounded
+
+  <!-- list of tags -->
+  <div class="tags">
+    <span class="tag">One</span>
+    <span class="tag">Two</span>
+    <span class="tag">Three</span>
+  </div>
+
+  <!-- has addons -->
+  <div class="tags has-addons">
+    <span class="tag">Package</span>
+    <span class="tag is-primary">Bulma</span>
+  </div>
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- title -->
+<h1 class="title">Title</h1>
+<h2 class="subtitle">Subtitle</h2>
+
+  is-1
+  ...
+  is-6
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- breadcrumb: https://bulma.io/documentation/components/breadcrumb/ -->
+<nav class="breadcrumb" aria-label="breadcrumbs">
+    <ul>
+        <li><a href="#"><!-- ... --></a></li>
+        <li class="is-active"><a href="#" aria-current="page"><!-- ... --></a></li>
+    </ul>
+</nav>
+
+  .breadcrumb.is-centered
+  .breadcrumb.is-right
+
+  <!-- separators -->
+  has-arrow-separator
+  has-bullet-separator
+  has-succeeds-separator
+
+  <!-- sizes -->
+  is-small
+  is-medium
+  is-large
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- card: https://bulma.io/documentation/components/card/# -->
+<div class="card">
+  <div class="card-image">
+    <!-- ... -->
+  </div>
+  <div class="card-content">
+    <!-- ... -->
+  </div>
+</div>
+
+card: the main container
+  card-header: a horizontal bar with a shadow
+    card-header-title: a left-aligned bold text
+    card-header-icon: a placeholder for an icon
+  card-image: a fullwidth container for a responsive image
+  card-content: a multi-purpose container for any other element
+  card-footer: a horizontal list of controls
+    card-footer-item: a repeatable list item
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- dropdown: https://bulma.io/documentation/components/dropdown/ -->
+<div class="dropdown is-active">
+  <div class="dropdown-trigger">
+    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+      <span>Dropdown button</span>
+      <span class="icon is-small">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </div>
+  <div class="dropdown-menu" id="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+      <a href="#" class="dropdown-item"> Dropdown item </a>
+      <a class="dropdown-item"> Other dropdown item </a>
+      <a href="#" class="dropdown-item is-active"> Active dropdown item </a>
+      <a href="#" class="dropdown-item"> Other dropdown item </a>
+      <hr class="dropdown-divider">
+      <a href="#" class="dropdown-item"> With a divider </a>
+    </div>
+  </div>
+</div>
+
+dropdown the main container
+  dropdown-trigger the container for a button
+  dropdown-menu the toggable menu, hidden by default
+    dropdown-content the dropdown box, with a white background and a shadow
+      dropdown-item each single item of the dropdown, which can either be a a or a div
+      dropdown-divider a horizontal line to separate dropdown items
+
+  <!-- types -->
+  is-hoverable
+  is-active
+
+  <!-- styles -->
+  is-right
+  is-up
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- menu: https://bulma.io/documentation/components/menu/ -->
+<aside class="menu">
+  <p class="menu-label"> General </p>
+  <ul class="menu-list">
+    <li><a>Dashboard</a></li>
+    <li><a>Customers</a></li>
+  </ul>
+  <p class="menu-label"> Administration </p>
+  <ul class="menu-list">
+    <li><a>Team Settings</a></li>
+    <li>
+      <a class="is-active">Manage Your Team</a>
+      <ul>
+        <li><a>Members</a></li>
+        <li><a>Plugins</a></li>
+        <li><a>Add a member</a></li>
+      </ul>
+    </li>
+    <li><a>Invitations</a></li>
+    <li><a>Cloud Storage Environment Settings</a></li>
+    <li><a>Authentication</a></li>
+  </ul>
+  <p class="menu-label">
+    Transactions
+  </p>
+  <ul class="menu-list">
+    <li><a>Payments</a></li>
+    <li><a>Transfers</a></li>
+    <li><a>Balance</a></li>
+  </ul>
+</aside>
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- message:  -->
+<article class="message is-dark">
+  <div class="message-header">
+    <p>Dark</p>
+    <button class="delete" aria-label="delete"></button>
+  </div>
+  <div class="message-body">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+  </div>
+</article>
+
+  <!-- body only -->
+  <article class="message">
+    <div class="message-body">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+    </div>
+  </article>
+
+  <!-- sizes -->
+  .message.is-small
+  .message.is-medium
+  .message.is-large
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- modal -->
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <!-- Any other Bulma elements you want -->
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<!-- image modal -->
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <p class="image is-4by3">
+      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="">
+    </p>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<!-- classic modal -->
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Modal title</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Content ... -->
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success">Save changes</button>
+      <button class="button">Cancel</button>
+    </footer>
+  </div>
+</div>
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- navbar: https://bulma.io/documentation/components/navbar/ -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">
+        Home
+      </a>
+
+      <a class="navbar-item">
+        Documentation
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            About
+          </a>
+          <a class="navbar-item">
+            Jobs
+          </a>
+          <a class="navbar-item">
+            Contact
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Report an issue
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light">
+            Log in
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+navbar the main container
+  navbar-brand the left side, always visible, which usually contains the logo and optionally some links or icons
+    navbar-burger the hamburger icon, which toggles the navbar menu on touch devices
+  navbar-menu the right side, hidden on touch devices, visible on desktop
+    navbar-start the left part of the menu, which appears next to the navbar brand on desktop
+    navbar-end the right part of the menu, which appears at the end of the navbar
+      navbar-item each single item of the navbar, which can either be an a or a div
+        navbar-link a link as the sibling of a dropdown, with an arrow
+        navbar-dropdown the dropdown menu, which can include navbar items and dividers
+        navbar-divider a horizontal line to separate navbar items
+
+  <!-- styles -->
+  is-transparent
+  is-fixed-top
+  is-fixed-bottom
+  has-navbar-fixed-top
+  has-navbar-fixed-bottom
+
+  <!-- color -->
+  is-primary
+  is-link
+  ...
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- pagination -->
+<nav class="pagination" role="navigation" aria-label="pagination">
+  <a class="pagination-previous">Previous</a>
+  <a class="pagination-next">Next page</a>
+  <ul class="pagination-list">
+    <li>
+      <a class="pagination-link" aria-label="Goto page 1">1</a>
+    </li>
+    <li>
+      <span class="pagination-ellipsis">&hellip;</span>
+    </li>
+    <li>
+      <a class="pagination-link" aria-label="Goto page 45">45</a>
+    </li>
+    <li>
+      <a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a>
+    </li>
+    <li>
+      <a class="pagination-link" aria-label="Goto page 47">47</a>
+    </li>
+    <li>
+      <span class="pagination-ellipsis">&hellip;</span>
+    </li>
+    <li>
+      <a class="pagination-link" aria-label="Goto page 86">86</a>
+    </li>
+  </ul>
+</nav>
+
+pagination-previous and pagination-next for incremental navigation
+  pagination-list which displays page items:
+    pagination-link for the page numbers
+    pagination-ellipsis for range separators
+
+  <!-- styles -->
+  is-centered
+  is-right
+  is-rounded
+
+  is-small
+  is-medium
+  is-large
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- panel -->
+<nav class="panel">
+  <p class="panel-heading">
+    repositories
+  </p>
+  <div class="panel-block">
+    <!-- ... -->
+  </div>
+</nav>
+
+panel-heading as the first child
+  panel-tabs for navigation
+  panel-block which can contain other elements, like:
+    control
+    input
+    button
+    panel-icon
+<!-- ------------------------------------------------------------------------------- -->
+
+<!-- tabs: -->
+<div class="tabs">
+  <ul>
+    <li class="is-active"><a>Pictures</a></li>
+    <li><a>Music</a></li>
+    <li><a>Videos</a></li>
+    <li><a>Documents</a></li>
+  </ul>
+</div>
+
+  is-centered
+  is-right
+  is-boxed
+  is-toggle
+  is-fullwidth
+
+  is-small
+  is-medium
+  is-large
+<!-- ------------------------------------------------------------------------------- -->
+<!-- ------------------------------------------------------------------------------- -->
