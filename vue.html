@@ -1,0 +1,201 @@
+<!-- https://flaviocopes.com/vue-cheat-sheet/ -->
+<!-- https://github.com/dekadentno/vue-cheat-sheet -->
+<!-- https://github.com/vuejs/awesome-vue#filters -->
+
+<!-- NOTE
+Don’t use arrow functions on an options property or callback,
+such as created: () => console.log(this.a) or vm.$watch('a', newValue => this.myMethod()) .
+Since an arrow function doesn’t have a this
+-->
+
+<!-- expressions -->
+<div id="app">
+	<p>I have a {{ product }}</p>
+	<p>{{ product + 's' }}</p>
+	<p>{{ isWorking ? 'YES' : 'NO' }}</p> <p>{{ product.getSalePrice() }}</p>
+</div>
+<!-- --------------------------------------------------------------------------- -->
+
+<!-- v-if -->
+<div v-if="inStock">...</div>
+<div v-else-if="inStock">...</div>
+<div v-else>...</div>
+
+<!-- v-show -->
+<div v-show="showProductDetails">...</div>
+
+<!-- data binding -->
+<input v-model="firstName">
+	 v-model.lazy="..."
+	 v-model.number="..."
+	 v-model.trim="..."
+<!-- --------------------------------------------------------------------------- -->
+
+<!-- for loop -->
+<li v-for="item in items" :key="item.id">
+	{{ item }}
+</li>
+
+<!-- To access the position in the array: -->
+<li v-for="(item, index) in items">
+<!-- To iterate through objects: -->
+<li v-for="(value, key) in object">
+<!-- Using v-for with a component: -->
+<cart-product v-for="item in products" :product="item" :key="item.id">
+<!-- --------------------------------------------------------------------------- -->
+
+<!-- binding -->
+<a :href="url">...</a>
+<!-- css class -->
+<div :class="{ active: isActive }">...
+<!-- css style -->
+<div :style="{ color: activeColor }">
+<!-- --------------------------------------------------------------------------- -->
+
+<!-- events -->
+<button @click="addToCart">...
+<button @click="addToCart(product)">...
+<!-- To prevent default behavior (e.g. page reload):	 -->
+<form @submit.prevent="addProduct">...
+<!-- Only trigger once:	 -->
+<img @mouseover.once="showImage">...
+<!-- keyboard -->
+<input @keyup.enter="submit">
+<!-- ctrl+c -->
+<input @keyup.ctrl.c="onCopy">
+<!-- --------------------------------------------------------------------------- -->
+
+<!-- routerlink -->
+<router-link :to="{name: 'view-employee', params: {employee_id: employee.employee_id}}">Edit</router-link>
+<!-- --------------------------------------------------------------------------- -->
+
+<!-- filters: https://github.com/freearhey/vue2-filters -->
+<p>My name is {{ name | capitalize }}</p>
+	capitalize
+	uppercase
+	lowercase
+	placeholder
+	truncate
+	currency
+	pluralize
+<!-- --------------------------------------------------------------------------- -->
+
+<!-- Key modifiers: -->
+	.tab
+	.delete
+	.esc
+	.space
+	.up
+	.down
+	.left
+	.right
+	.ctrl
+	.alt
+	.shift
+	.meta
+<!-- Mouse modifiers: -->
+	.left
+	.right
+	.middle
+<!-- --------------------------------------------------------------------------- -->
+<!-- --------------------------------------------------------------------------- -->
+
+<script>
+	// life cycle hooks
+	beforeCreate
+	created
+	beforeMount
+	mounted
+	beforeUpdate
+	updated
+	beforeDestroy
+	destroyed
+	// ---------------------------------------------------------------------------
+
+	// new vue inline
+	var app = new Vue({
+	    el: '#app',
+	    data: {
+	    	message: 'Hello'
+	    },
+	    //----------------------------
+
+		delimiters: ['{', '}'],
+	    components: {
+			ProductComponent, ReviewComponent
+		},
+	    methods: {
+	      onClick: function () { alert('clicked!') }
+	    },
+	    mounted: function () {
+	    	// ...
+	    },
+	    filters: {
+	    	currencydecimal: function (value) {
+		      	return value.toFixed(2)
+		    }
+	    },
+	    computed: {
+	    	fullName: function () {
+		      	return this.firstName + ' ' + this.lastName
+		    }
+	    },
+	    watch: {
+			firstName: function (value, oldValue) {
+				// ...
+			}
+		}
+	});
+	// ---------------------------------------------------------------------------
+
+	// new vue component
+	Vue.component('licenses-view', {
+		template: '#licenses-view',
+		props: {
+			message: String
+		},
+		data: function() {
+			return {
+				message: 'Hello'
+			}
+		},
+		//----------------------------
+
+		delimiters: ['{', '}'],
+	    components: {
+			ProductComponent, ReviewComponent
+		},
+	    methods: {
+	      onClick: function () { alert('clicked!') }
+	    },
+	    mounted: function () {
+	    	// ...
+	    },
+	    filters: {
+	    	currencydecimal: function (value) {
+		      	return value.toFixed(2)
+		    }
+	    },
+	    computed: {
+	    	fullName: function () {
+		      	return this.firstName + ' ' + this.lastName
+		    }
+	    },
+	    watch: {
+			firstName: function (value, oldValue) {
+				// ...
+			}
+		}
+	})
+	// ---------------------------------------------------------------------------
+
+	// round to 2 decimal value filter
+	filters: {
+	    currencydecimal (value) {
+	      	return value.toFixed(2)
+	    }
+	 }
+	// ---------------------------------------------------------------------------
+	// ---------------------------------------------------------------------------
+	// ---------------------------------------------------------------------------
+</script>
