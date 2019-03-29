@@ -7,6 +7,8 @@ $ pip install python-dotenv
 $ export FLASK_ENV=development
 $ export FLASK_APP=wsgi.py
 $ flask run
+# -- or --
+(venv) $ FLASK_APP=run.py FLASK_DEBUG=1 flask run
 
 #-- to enable debug
 $ export FLASK_DEBUG=1
@@ -134,10 +136,94 @@ class Config(object):
     # ...
 
 # sample .env file content
-SECRET_KEY=a-really-long-and-unique-key-that-nobody-knows
+SECRET_KEY=52cb883e323b48d78a0a36e8e951ba4a
 MAIL_SERVER=localhost
 MAIL_PORT=25
-MS_TRANSLATOR_KEY=<your-translator-key-here>
+DATABASE_URL=mysql+pymysql://microblog:<db-password>@localhost:3306/microblog
+
+# configure secret_key
+python -c 'import os; print(os.urandom(16))'		# b'_5#y2L"F4Q8z\n\xec]/'
+# -- or --
+python -c "import uuid; print(uuid.uuid4().hex)"	# 52cb883e323b48d78a0a36e8e951ba4a
+#------------------------------------------------------------------------------------------------
+
+#--------------------
+# ELASTICSEARCH (https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvi-full-text-search)
+#--------------------
+#------------------------------------------------------------------------------------------------
+
+#--------------------
+# SETUP MYSQL (https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvii-deployment-on-linux)
+#--------------------
+$ mysql -u root -p
+mysql> create database microblog character set utf8 collate utf8_bin;
+mysql> create user 'microblog'@'localhost' identified by '<db-password>';
+mysql> grant all privileges on microblog.* to 'microblog'@'localhost';
+mysql> flush privileges;
+mysql> quit;
+#------------------------------------------------------------------------------------------------
+
+#--------------------
+# LINUX DEPLOYMENT (https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvii-deployment-on-linux)
+#--------------------
+# gunicorn
+(venv) $ gunicorn -b localhost:8000 -w 4 microblog:app
+
+# supervisor
+$ sudo supervisorctl reload
+
+# nginx
+$ sudo service nginx reload
+
+# SSL certificate  (https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https)
+$ mkdir certs
+$ openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 \
+  -keyout certs/key.pem -out certs/cert.pem
+#------------------------------------------------------------------------------------------------
+
+#--------------------
+# HEROKU DEPLOYMENT (https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xviii-deployment-on-heroku)
+#--------------------
+$ heroku login
+$ heroku apps:create flask-microblog
+
+$ git remote -v
+
+$ heroku addons:add heroku-postgresql:hobby-dev
+$ heroku config:set LOG_TO_STDOUT=1
+
+# procfile content
+web: flask db upgrade; flask translate compile; gunicorn microblog:app
+
+$ heroku config:set FLASK_APP=microblog.py
+$ git push heroku master
+
+# if has code changes
+$ git push heroku master
+#------------------------------------------------------------------------------------------------
+
+#--------------------
+# USING CELERY (https://blog.miguelgrinberg.com/post/using-celery-with-flask)
+#--------------------
+#------------------------------------------------------------------------------------------------
+
+#--------------------
+# REST API (https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xxiii-application-programming-interfaces-apis)
+#--------------------
+# HTTP Method	Action									Examples
+GET				Obtain information about a resource		http://example.com/api/orders 		#(retrieve order list)
+GET				Obtain information about a resource		http://example.com/api/orders/123   #(retrieve order #123)
+POST			Create a new resource					http://example.com/api/orders 		#(create a new order, from data provided with the request)
+PUT				Update a resource						http://example.com/api/orders/123   #(update order #123, from data provided with the request)
+DELETE			Delete a resource						http://example.com/api/orders/123 	#(delete order #123)
+
+# https://blog.miguelgrinberg.com/post/restful-authentication-with-flask
+# https://flask-restful.readthedocs.io/en/latest/quickstart.html
+# https://codeburst.io/this-is-how-easy-it-is-to-create-a-rest-api-8a25122ab1f3
+# https://codeburst.io/jwt-authorization-in-flask-c63c1acf4eeb
+
+# api token
+(venv) $ pip install flask-httpauth
 #------------------------------------------------------------------------------------------------
 
 #--------------------
