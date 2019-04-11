@@ -1,4 +1,5 @@
 # Standard:
+http://rogerdudler.github.io/git-guide/
 https://softwareengineering.stackexchange.com/questions/165725/git-branching-and-tagging-best-practices
 https://nvie.com/posts/a-successful-git-branching-model/
 # --------------------------------------------------------------------------------

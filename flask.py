@@ -119,7 +119,7 @@ current_app._get_current_object() # extracts the actual application instance fro
 #------------------------------------------------------------------------------------------------
 
 #--------------------
-# ENVIRONMENT VARIABLE (https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xv-a-better-application-structure)
+# ENVIRONMENT VARIABLE / CONFIGURATIONS (https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xv-a-better-application-structure)
 #--------------------
 #- environment variables is to store these in a ".env" file in the root application directory
 #- It is important that you do not add your .env file to source control.
@@ -145,6 +145,12 @@ DATABASE_URL=mysql+pymysql://microblog:<db-password>@localhost:3306/microblog
 python -c 'import os; print(os.urandom(16))'		# b'_5#y2L"F4Q8z\n\xec]/'
 # -- or --
 python -c "import uuid; print(uuid.uuid4().hex)"	# 52cb883e323b48d78a0a36e8e951ba4a
+# ------------------------
+
+# TYPES
+app.config.from_object('module_name.DevelopmentConfig')     # Object-based configuration (recommended)
+app.config.from_pyfile('config_file.cfg')       # File-based configuration
+app.config.from_envvar('FLASK_CONFIG_FILE')     # EnvVars-based configuration
 #------------------------------------------------------------------------------------------------
 
 #--------------------
@@ -210,12 +216,12 @@ $ git push heroku master
 #--------------------
 # REST API (https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xxiii-application-programming-interfaces-apis)
 #--------------------
-# HTTP Method	Action									Examples
-GET				Obtain information about a resource		http://example.com/api/orders 		#(retrieve order list)
-GET				Obtain information about a resource		http://example.com/api/orders/123   #(retrieve order #123)
-POST			Create a new resource					http://example.com/api/orders 		#(create a new order, from data provided with the request)
-PUT				Update a resource						http://example.com/api/orders/123   #(update order #123, from data provided with the request)
-DELETE			Delete a resource						http://example.com/api/orders/123 	#(delete order #123)
+# URL	        Method	    Description
+/users/	        GET	        Gives a list of all users
+/users/	        POST	    Creates a new user
+/users/<id>	    GET	        Shows a single user
+/users/<id>	    PUT	        Updates a single user
+/users/<id>	    DELETE	    Deletes a single user
 
 # https://blog.miguelgrinberg.com/post/restful-authentication-with-flask
 # https://flask-restful.readthedocs.io/en/latest/quickstart.html
@@ -225,6 +231,20 @@ DELETE			Delete a resource						http://example.com/api/orders/123 	#(delete orde
 # api token
 (venv) $ pip install flask-httpauth
 #------------------------------------------------------------------------------------------------
+
+#--------------------
+# list app urls
+#--------------------
+(venv) $ flask shell
+>>> print(app.url_map)
+Map([<Rule '/register' (OPTIONS, HEAD, GET, POST) -> users.register>,
+ <Rule '/profile' (OPTIONS, HEAD, GET) -> users.profile>,
+ <Rule '/logout' (OPTIONS, HEAD, GET) -> users.logout>,
+ <Rule '/login' (OPTIONS, HEAD, GET, POST) -> users.login>,
+ <Rule '/' (OPTIONS, HEAD, GET) -> recipes.index>,
+ <Rule '/static/<filename>' (OPTIONS, HEAD, GET) -> static>])
+#------------------------------------------------------------------------------------------------
+
 
 #--------------------
 #

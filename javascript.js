@@ -211,6 +211,24 @@ a.trim()
 // replace variable in string / string format
 let a = `account created for ${user.email}`
 //------------------------------------------------------------------------------------
+
+// promise test (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+let promise1 = new Promise((resolve, reject) => {
+  setTimeout(function() {
+    resolve('foo');
+  }, 800);
+});
+
+promise1.then((value) => {
+  console.log(value);
+  // expected output: "foo"
+}).catch((reason) => {
+  console.log(reason);
+  // expected output: object type
+});
+
+console.log(promise1);
+// expected output: [object Promise]
 //------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------
