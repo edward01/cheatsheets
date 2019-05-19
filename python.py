@@ -1,3 +1,14 @@
+# Snippets
+https://snippets.readthedocs.io/en/latest/
+
+# For loop to 10
+for i in range(10):
+    print(i)
+# 0
+# 1
+# ...
+# 9
+
 # For loop with index, using enumerate()
 first_names = [​'Bob'​, ​'Harry'​, ​'Marry'​]
 for​ i, name ​in​ enumerate(first_names):
@@ -5,12 +16,6 @@ for​ i, name ​in​ enumerate(first_names):
 # >> ​0.​ Bob
 # >> ​1.​ Harry
 # >> ​2.​ Marry
-
-# Class methods / types
-- instance
-- class
-- static
-- property
 
 # String formatting
 name = 'Edward'
@@ -293,7 +298,8 @@ log.info('Got pdu: %s' % routable.pdu)
 import sys
 print 'Number of arguments:', len(sys.argv), 'arguments.'
 print 'Argument List:', sys.argv
-Python Testing
+
+# Python Testing
 https://laysrodriguesdev.wordpress.com/2017/06/28/how-to-play-around-with-python-and-mock/
 
 # Script with input
@@ -313,11 +319,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _basedir = os.path.abspath(os.path.dirname(__file__))
 
 # Cleaner variable assignment to template
-    vars = {
-        'name': 'Ed',
-        'address': 'Valenzuela'
-    }
-    return render_template('mikrotik_config/small.py', **vars)
+vars = {
+    'name': 'Ed',
+    'address': 'Valenzuela'
+}
+return render_template('mikrotik_config/small.py', **vars)
 
 # Human Friendly Values
 >>> import humanfriendly
@@ -396,8 +402,67 @@ newlist = sorted(list_to_be_sorted, key=itemgetter('name'), reverse=True)
 ex: r'\d\d\d\d'
 - To interpret this to python that its raw string
 http://www.pythoncentral.io/introduction-to-python-regular-expressions/
-* Python Classes
+
+# * Python Classes
 http://www.pythoncentral.io/introduction-to-python-classes/
+# Single underscores are a Python naming convention that indicates a name is meant for internal use. It is generally not enforced by the Python interpreter and is only meant as a hint to the programmer.
+
+# Class methods / types
+- instance
+- class
+- static
+- property
+
+class Alphabet:
+    _myvar = 'this is private var'
+
+    def __init__(self, value):
+        self._value = value
+
+    def __repr__(self):
+        return '<User %r>' % self.name
+
+    def __str__(self):
+        return self.name
+
+    def instance_method(self, parameter_list):
+        pass
+
+    def _private_method(self, parameter_list):   # this is private method
+        pass
+
+    # getting the values
+    @property
+    def value(self):
+        print('Getting value')
+        return self._value
+
+    # setting the values
+    @my_value.setter
+    def my_value(self, value):
+        print('Setting value to ' + value)
+        self._value = value
+
+    # deleting the values
+    @value.deleter
+    def value(self):
+        print('Deleting value')
+        del self._value
+
+    @staticmethod
+    def static_method(parameter_list):
+        pass
+
+    @classmethod
+    def class_method(cls, parameter_list):
+        pass
+
+# passing the value
+x = Alphabet('Peter')
+print(x.value)
+x.value = 'Diesel'
+del x.value
+#------------------------------------------------------------------------------------------------------------
 
 # Merge 2 dict (python3)
 >>> dict1 = {'bookA': 1, 'bookB': 2, 'bookC': 3}
@@ -408,6 +473,10 @@ http://www.pythoncentral.io/introduction-to-python-classes/
 
 # Dict deepcopy (python3)
 >>> import copy
+>>> xs = 1, 2, 3], [4, 5, 6], [7, 8, 9
+>>> zs = copy.deepcopy(xs)
+# -- or --
+>>> import copy
 >>> first = {'key': ['value']}
 >>> second = copy.deepcopy(first)
 >>> second['key'].append('second value')
@@ -415,6 +484,7 @@ http://www.pythoncentral.io/introduction-to-python-classes/
 {'key': ['value']}
 >>> second
 {'key': ['value', 'second value']}
+# NOTE: The copy.copy() - shallow copy for custom objects
 #--------------------------------------------------------------------------------------------
 
 # Random Generator
@@ -425,6 +495,13 @@ http://www.pythoncentral.io/introduction-to-python-classes/
 11
 >>> random.randrange(12)
 4
+>>> random.randrange(18, 40)    # from 18 - 40
+33
+
+# random item from the list
+import random
+foo = ['a', 'b', 'c', 'd', 'e']
+print(random.choice(foo))
 #--------------------------------------------------------------------------------------------
 
 # Work with strings

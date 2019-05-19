@@ -235,16 +235,14 @@ $ git push heroku master
 #--------------------
 # list app urls
 #--------------------
-(venv) $ flask shell
->>> print(app.url_map)
-Map([<Rule '/register' (OPTIONS, HEAD, GET, POST) -> users.register>,
- <Rule '/profile' (OPTIONS, HEAD, GET) -> users.profile>,
- <Rule '/logout' (OPTIONS, HEAD, GET) -> users.logout>,
- <Rule '/login' (OPTIONS, HEAD, GET, POST) -> users.login>,
- <Rule '/' (OPTIONS, HEAD, GET) -> recipes.index>,
- <Rule '/static/<filename>' (OPTIONS, HEAD, GET) -> static>])
+(venv) $ flask routes
+# Endpoint                         Methods    Rule
+# -------------------------------  ---------  ----------------------------
+# api.conferences_conference       GET, PUT   /api/v1/conferences/<int:id>
+# api.conferences_conference_list  GET, POST  /api/v1/conferences/
+# api.doc                          GET        /api/v1/
+# ...
 #------------------------------------------------------------------------------------------------
-
 
 #--------------------
 #

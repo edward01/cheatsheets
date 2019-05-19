@@ -1,0 +1,41 @@
+<!-- boilerplate -->
+<v-app>
+  <v-navigation-drawer app></v-navigation-drawer>
+  <v-toolbar app></v-toolbar>
+  <v-content>
+    <v-container fluid>
+      <router-view></router-view>
+    </v-container>
+  </v-content>
+  <v-footer app></v-footer>
+</v-app>
+<!-- ============================================================================= -->
+
+<!-- typography: https://vuetifyjs.com/en/framework/typography#text-transforms -->
+
+<!-- CENTER TEXT / APPLY BACKGROUND COLOR -->
+<div class="purple darken-2 text-xs-center">
+    <!-- text color -->
+    <span class="white--text">Lorem ipsum</span>
+    <!-- text color darken/lighten -->
+    <span class="white--text text--darken-4">Lorem ipsum</span>
+</div>
+
+<!-- material icons: https://material.io/tools/icons/?style=baseline -->
+
+<!-- button -->
+<v-btn dark color="indigo">
+    <v-icon dark>favorite</v-icon>
+</v-btn>
+
+<!-- change theme -->
+<!-- https://vuetifyjs.com/en/framework/theme#theme -->
+
+<!-- spacing -->
+<!-- https://vuetifyjs.com/en/framework/spacing#spacing -->
+
+<!-- container -->
+<!-- * add 'fluid' - for fullwidth -->
+<v-container class="my-5">
+    content
+</v-container>

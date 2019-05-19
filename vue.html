@@ -10,9 +10,10 @@ Since an arrow function doesn’t have a this
 
 <!-- expressions -->
 <div id="app">
-	<p>I have a {{ product }}</p>
-	<p>{{ product + 's' }}</p>
-	<p>{{ isWorking ? 'YES' : 'NO' }}</p> <p>{{ product.getSalePrice() }}</p>
+    <p>I have a {{ product }}</p>
+    <p>{{ product + 's' }}</p>
+    <p>{{ isWorking ? 'YES' : 'NO' }}</p>
+    <p>{{ product.getSalePrice() }}</p>
 </div>
 <!-- --------------------------------------------------------------------------- -->
 
@@ -26,14 +27,14 @@ Since an arrow function doesn’t have a this
 
 <!-- data binding -->
 <input v-model="firstName">
-	 v-model.lazy="..."
-	 v-model.number="..."
-	 v-model.trim="..."
+v-model.lazy="..."
+v-model.number="..."
+v-model.trim="..."
 <!-- --------------------------------------------------------------------------- -->
 
 <!-- for loop -->
 <li v-for="item in items" :key="item.id">
-	{{ item }}
+    {{ item }}
 </li>
 
 <!-- To access the position in the array: -->
@@ -66,136 +67,200 @@ Since an arrow function doesn’t have a this
 <!-- --------------------------------------------------------------------------- -->
 
 <!-- routerlink -->
-<router-link :to="{name: 'view-employee', params: {employee_id: employee.employee_id}}">Edit</router-link>
+<router-link :to="{name: 'view-employee', params: {employee_id: employee.employee_id}}">Edit
+</router-link>
 <!-- --------------------------------------------------------------------------- -->
 
 <!-- filters: https://github.com/freearhey/vue2-filters -->
 <p>My name is {{ name | capitalize }}</p>
-	capitalize
-	uppercase
-	lowercase
-	placeholder
-	truncate
-	currency
-	pluralize
+capitalize
+uppercase
+lowercase
+placeholder
+truncate
+currency
+pluralize
 <!-- --------------------------------------------------------------------------- -->
 
 <!-- Key modifiers: -->
-	.tab
-	.delete
-	.esc
-	.space
-	.up
-	.down
-	.left
-	.right
-	.ctrl
-	.alt
-	.shift
-	.meta
+.tab
+.delete
+.esc
+.space
+.up
+.down
+.left
+.right
+.ctrl
+.alt
+.shift
+.meta
 <!-- Mouse modifiers: -->
-	.left
-	.right
-	.middle
+.left
+.right
+.middle
 <!-- --------------------------------------------------------------------------- -->
+
+<!-- 'hides' element while browser loading -->
+<!-- https://jsfiddle.net/edpogi/4xrcwogp/6/ -->
+<style>
+    [v-cloak] .v-cloak--block {
+        display: block;
+    }
+
+    [v-cloak] .v-cloak--inline {
+        display: inline;
+    }
+
+    [v-cloak] .v-cloak--inlineBlock {
+        display: inline-block;
+    }
+
+    [v-cloak] .v-cloak--hidden {
+        display: none;
+    }
+
+    [v-cloak] .v-cloak--invisible {
+        visibility: hidden;
+    }
+
+    .v-cloak--block,
+    .v-cloak--inline,
+    .v-cloak--inlineBlock {
+        display: none;
+    }
+</style>
+<html>
+<div id="app" v-cloak>
+    <span class="v-cloak--inline">
+        <!-- Only displayed before compiling -->
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        <span class="sr-only">Loading...</span>
+    </span>
+    <span class="v-cloak--hidden">{{message}}</span>
+    <!-- Hidden until compiling is finished -->
+</div>
+
+</html>
+<script>
+    setTimeout(() => {
+        var vm = new Vue({
+            el: '#app',
+            data: function() {
+                return {
+                    message: 'Hello Vue!'
+                }
+            }
+        });
+    }, 1000);
+</script>
 <!-- --------------------------------------------------------------------------- -->
 
 <script>
-	// life cycle hooks
-	beforeCreate
-	created
-	beforeMount
-	mounted
-	beforeUpdate
-	updated
-	beforeDestroy
-	destroyed
-	// ---------------------------------------------------------------------------
+    // life cycle hooks
+    beforeCreate
+    created
+    beforeMount
+    mounted
+    beforeUpdate
+    updated
+    beforeDestroy
+    destroyed
+    // ---------------------------------------------------------------------------
 
-	// new vue inline
-	var app = new Vue({
-	    el: '#app',
-	    data: {
-	    	message: 'Hello'
-	    },
-	    //----------------------------
+    // new vue inline
+    var app = new Vue({
+        el: '#app',
+        data: function() {
+            return {
+                message: 'Hello'
+            }
+        },
+        //----------------------------
 
-		delimiters: ['{', '}'],
-	    components: {
-			ProductComponent, ReviewComponent
-		},
-	    methods: {
-	      onClick: function () { alert('clicked!') }
-	    },
-	    mounted: function () {
-	    	// ...
-	    },
-	    filters: {
-	    	currencydecimal: function (value) {
-		      	return value.toFixed(2)
-		    }
-	    },
-	    computed: {
-	    	fullName: function () {
-		      	return this.firstName + ' ' + this.lastName
-		    }
-	    },
-	    watch: {
-			firstName: function (value, oldValue) {
-				// ...
-			}
-		}
-	});
-	// ---------------------------------------------------------------------------
+        delimiters: ['{', '}'],
+        components: {
+            ProductComponent,
+            ReviewComponent
+        },
+        methods: {
+            onClick: function () {
+                alert('clicked!')
+            }
+        },
+        mounted: function () {
+            // ...
+        },
+        filters: {
+            currencydecimal: function (value) {
+                return value.toFixed(2)
+            }
+        },
+        computed: {
+            fullName: function () {
+                return this.firstName + ' ' + this.lastName
+            }
+        },
+        watch: {
+            firstName: function (value, oldValue) {
+                // ...
+            }
+        }
+    });
+    // ---------------------------------------------------------------------------
 
-	// new vue component
-	Vue.component('licenses-view', {
-		template: '#licenses-view',
-		props: {
-			message: String
-		},
-		data: function() {
-			return {
-				message: 'Hello'
-			}
-		},
-		//----------------------------
+    // new vue component
+    Vue.component('licenses-view', {
+        template: '#licenses-view',
+        props: {
+            message: String
+        },
+        data: function () {
+            return {
+                message: 'Hello'
+            }
+        },
+        //----------------------------
 
-		delimiters: ['{', '}'],
-	    components: {
-			ProductComponent, ReviewComponent
-		},
-	    methods: {
-	      onClick: function () { alert('clicked!') }
-	    },
-	    mounted: function () {
-	    	// ...
-	    },
-	    filters: {
-	    	currencydecimal: function (value) {
-		      	return value.toFixed(2)
-		    }
-	    },
-	    computed: {
-	    	fullName: function () {
-		      	return this.firstName + ' ' + this.lastName
-		    }
-	    },
-	    watch: {
-			firstName: function (value, oldValue) {
-				// ...
-			}
-		}
-	})
-	// ---------------------------------------------------------------------------
+        delimiters: ['{', '}'],
+        components: {
+            ProductComponent,
+            ReviewComponent
+        },
+        methods: {
+            onClick: function () {
+                alert('clicked!')
+            }
+        },
+        mounted: function () {
+            // ...
+        },
+        filters: {
+            currencydecimal: function (value) {
+                return value.toFixed(2)
+            }
+        },
+        computed: {
+            fullName: function () {
+                return this.firstName + ' ' + this.lastName
+            }
+        },
+        watch: {
+            firstName: function (value, oldValue) {
+                // ...
+            }
+        }
+    })
+    // ---------------------------------------------------------------------------
 
-	// round to 2 decimal value filter
-	filters: {
-	    currencydecimal (value) {
-	      	return value.toFixed(2)
-	    }
-	 }
-	// ---------------------------------------------------------------------------
-	// ---------------------------------------------------------------------------
-	// ---------------------------------------------------------------------------
+    // round to 2 decimal value filter
+    filters: {
+        currencydecimal(value) {
+            return value.toFixed(2)
+        }
+    }
+    // ---------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------
+
 </script>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>Vuetify Quick Reference</title>
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <!-- toolbar -->
+      <v-toolbar app dark color="primary">
+        <v-toolbar-side-icon></v-toolbar-side-icon>
+        <v-toolbar-title>
+          <!-- <img src="https://vuejs.org/images/logo.png" alt=""> -->
+          <span class="yellow--text font-weight-black">Vuetify</span>
+          <span>CheatSheets</span>
+        </v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-toolbar-items class="hidden-sm-and-down">
+          <v-btn flat>Link One</v-btn>
+        </v-toolbar-items>
+      </v-toolbar>
+
+      <v-content>
+        <!-- Grid -->
+        <v-container fluid>
+          <h2>Grid</h2>
+          <v-container grid-list-md text-xs-center fluid>
+            <v-layout row wrap>
+              <v-flex xs12>
+                <v-card dark color="primary">
+                  <v-card-text class="px-0">12</v-card-text>
+                </v-card>
+              </v-flex>
+              <v-flex v-for="i in 2" :key="`6${i}`" xs6>
+                <v-card dark color="secondary">
+                  <v-card-text class="px-0">6</v-card-text>
+                </v-card>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-container>
+
+        <!-- Alert -->
+        <v-container fluid>
+          <h2>Alert</h2>
+          <v-alert
+            v-model="alert"
+            dismissible
+            type="success"
+          >
+            This is a success alert that is closable.
+          </v-alert>
+        </v-container>
+
+        <!-- Button -->
+        <v-container fluid>
+          <h2>Button</h2>
+            <v-btn color="success">Success</v-btn>
+            <v-btn color="error">Error</v-btn>
+            <v-btn color="warning">Warning</v-btn>
+            <v-btn color="info">Info</v-btn>
+        </v-container>
+
+        <!-- Avatar -->
+        <v-container fluid>
+          <h2>Avatar</h2>
+          <v-layout
+            align-center
+            justify-space-around
+            wrap
+          >
+            <v-avatar color="indigo">
+              <v-icon dark>account_circle</v-icon>
+            </v-avatar>
+
+            <v-avatar>
+              <img
+                src="https://cdn.vuetifyjs.com/images/john.jpg"
+                alt="John"
+              >
+            </v-avatar>
+
+            <v-badge overlap>
+              <template v-slot:badge>
+                <span>3</span>
+              </template>
+
+              <v-avatar
+                color="purple red--after"
+              >
+                <v-icon dark>notifications</v-icon>
+              </v-avatar>
+            </v-badge>
+
+            <v-avatar color="teal">
+              <span class="white--text headline">C</span>
+            </v-avatar>
+
+            <v-avatar color="red">
+              <span class="white--text headline">J</span>
+            </v-avatar>
+          </v-layout>
+        </v-container>
+
+        <!-- xxx -->
+        <v-container fluid>
+          <h2>xxx</h2>
+        </v-container>
+      </v-content>
+
+      <v-footer dark class="pa-3">
+        <v-layout justify-center>
+          <div>&copy; {{ new Date().getFullYear() }} - <strong>Vuetify</strong></div>
+        </v-layout>
+        <!-- <v-spacer></v-spacer> -->
+      </v-footer>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          alert: true
+        }
+      }
+    })
+  </script>
+</body>
+</html>

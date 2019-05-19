@@ -1,8 +1,24 @@
+// HTML5 Web Storage (https://www.w3schools.com/html/html5_webstorage.asp)
+- HTML web storage; better than cookies.
+// 2 types:
+* window.localStorage - stores data with no expiration date
+* window.sessionStorage - stores data for one session (data is lost when the browser tab is closed)
+// Store
+localStorage.setItem("lastname", "Smith");
+localStorage.lastname = "Smith";
+// Retrieve
+document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+document.getElementById("result").innerHTML = localStorage.lastname;
+// Remove
+localStorage.removeItem("lastname");
+
+// HTML5 Web Worker (https://www.w3schools.com/html/html5_webworkers.asp)
+//------------------------------------------------------------------------------------
+
 // NOTE
 // Don’t use arrow functions on an options property or callback,
 // such as created: () => console.log(this.a) or vm.$watch('a', newValue => this.myMethod()) .
 // Since an arrow function doesn’t have a this
-
 
 // delete item from array (by index)
 array_var.splice(index, 1);
@@ -11,6 +27,9 @@ array_var.splice(index, 1);
 let id_to_exclude = '0002';
 array_var = array_var.find( user => user.id != id_to_exclude );
 //------------------------------------------------------------------------------------
+
+// typeof
+if (typeof(Storage) !== "undefined") {...}
 
 // find item by key
 let users = [
@@ -42,12 +61,18 @@ var n = fruits.includes("Mango");
 // n is true
 
 
+// filter
+let myArray = [3.14, 2.718, 1.618]
+const result = myArray.filter( x => x < 3 );
+console.log(result)
+// [2.718, 1.618]
+
 
 // NOTES
 Array.prototype.find() – find and return an item
 Array.prototype.findIndex() – find and return an index
 Array.prototype.includes() – test whether a value exists in the array
-Array.prototype.filter() – find all matching elements
+Array.prototype.filter() – find all matching elements and return an array
 Array.prototype.every() – test all elements together
 Array.prototype.some() – test at least one element
 
@@ -157,27 +182,17 @@ console.log(c.split(','))
 //------------------
 // Map
 // Give me a new array of all values multiplied by 10.
-let newArr = [5, 6, 7, 8, 900].map(value => { return value * 10; });
+let newArr = [5, 6, 7, 8, 900].map( x => x * 10 );
 // [50, 60, 70, 80, 9000]
 //---------------------------------------------
 
 // forEach
 // Create links to specs and drop them into #links.
-['html5', 'css3', 'webgl'].forEach(function(value) {
-	var linksList = document.querySelector('#links');
-	var newLink = value.link('http://google.com/search?btnI=1&q=' + value + ' spec')
-	linksList.innerHTML +=  newLink;
+myArray.forEach(function(item, index) {
+	console.log(index);
+	console.log(item);
 });
 //---------------------------------------------
-
-// filter
-// Return a new array of all mathematical constants under 2.
-let myArray = [3.14, 2.718, 1.618]
-myArray.filter(function(number) {
-  return number < 2;
-});
-// [1.618]
-//------------------------------------------------------------------------------------
 
 // loop objects
 var object1 = {a: 1, b: 2, c: 3};
@@ -212,24 +227,34 @@ a.trim()
 let a = `account created for ${user.email}`
 //------------------------------------------------------------------------------------
 
-// promise test (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-let promise1 = new Promise((resolve, reject) => {
-  setTimeout(function() {
-    resolve('foo');
-  }, 800);
+// promise test (https://codeburst.io/a-simple-guide-to-es6-promises-d71bacd2e13a)
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+const myPromise = new Promise((resolve, reject) => {
+  if (getRndInteger(1, 2) < 2) {
+    resolve('Hello, Promises!');
+  }
+  reject(new Error('In 50% of the cases, I fail. Miserably.'));
 });
 
-promise1.then((value) => {
+myPromise.then((value) => {
   console.log(value);
-  // expected output: "foo"
+  // expected output: "Hello, Promises!"
 }).catch((reason) => {
   console.log(reason);
-  // expected output: object type
+  // expected output: object type  (ex: [object Error] { ... })
 });
-
-console.log(promise1);
-// expected output: [object Promise]
 //------------------------------------------------------------------------------------
+
+// Random generator
+Math.random();              // returns a random number (ex: 0.2375854977177696)
+Math.floor(Math.random() * 10);     // returns a random integer from 0 to 9
+Math.floor(Math.random() * 10) + 1;  // returns a random integer from 1 to 10
+
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
 //------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------
 
