@@ -256,6 +256,13 @@ function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 //------------------------------------------------------------------------------------
+
+// Append dictionary as part of new dictionary
+// - use 3 dots
+projects.push({
+	id: change.doc.id,
+	...other_projects_obj
+})
 //------------------------------------------------------------------------------------
 
 /* *******************************************************************************************
@@ -353,3 +360,18 @@ arr.reduce(callback[, initialValue])                 // Apply a function against
 arr.reduceRight(callback[, initialValue])            // Apply a function against an accumulator and each value of the array (from right-to-left) as to reduce it to a single value.
 arr.some(callback[, initialValue])                   // Returns true if at least one element in this array satisfies the provided testing function.
 arr.values()                                         // Returns a new Array Iterator object that contains the values for each index in the array.
+//------------------------------------------------------------------------------------
+
+// Format Date
+formatDate (date) {
+	if (!date) return null
+	const [year, month, day] = date.split('-')
+	return `${month}/${day}/${year}`
+},
+parseDate (date) {
+	if (!date) return null
+	const [month, day, year] = date.split('/')
+	return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
+}
+//------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------

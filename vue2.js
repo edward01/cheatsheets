@@ -1,3 +1,6 @@
+// Tips & Tricks
+// https://itnext.io/four-tips-for-working-with-vue-js-b362d97de852
+
 /* *******************************************************************************************
  * GLOBAL CONFIG
  * Vue.config is an object containing Vue’s global configurations.

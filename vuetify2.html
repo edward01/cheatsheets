@@ -12,8 +12,13 @@
       <!-- toolbar -->
       <v-toolbar app dark color="primary">
         <v-toolbar-side-icon></v-toolbar-side-icon>
+        <v-toolbar-side-icon>
+          <v-icon color="yellow">android</v-icon>
+        </v-toolbar-side-icon>
+
+        <!-- <v-spacer></v-spacer> -->
+        <!-- <v-img src="https://vuejs.org/images/logo.png" max-height="50px" max-width="50px"></v-img> -->
         <v-toolbar-title>
-          <!-- <img src="https://vuejs.org/images/logo.png" alt=""> -->
           <span class="yellow--text font-weight-black">Vuetify</span>
           <span>CheatSheets</span>
         </v-toolbar-title>
@@ -21,6 +26,7 @@
         <v-toolbar-items class="hidden-sm-and-down">
           <v-btn flat>Link One</v-btn>
         </v-toolbar-items>
+        <v-toolbar-side-icon></v-toolbar-side-icon>
       </v-toolbar>
 
       <v-content>
@@ -103,6 +109,20 @@
               <span class="white--text headline">J</span>
             </v-avatar>
           </v-layout>
+        </v-container>
+
+        <!-- Text Alignment -->
+        <v-container fluid>
+          <h2>Text Alignment</h2>
+          <v-card>
+            <v-card-text>
+              <p class="text-lg-right">Right align on large viewport sizes</p>
+              <p class="text-md-center">Center align on medium viewport sizes</p>
+              <p class="text-sm-left">Left align on small viewport sizes</p>
+              <p class="text-xs-center">Center align on all viewport sizes</p>
+              <p class="text-xs-right">Right align on all viewport sizes</p>
+            </v-card-text>
+          </v-card>
         </v-container>
 
         <!-- xxx -->
