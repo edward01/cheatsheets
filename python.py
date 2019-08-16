@@ -405,6 +405,7 @@ http://www.pythoncentral.io/introduction-to-python-regular-expressions/
 
 # * Python Classes
 http://www.pythoncentral.io/introduction-to-python-classes/
+https://docs.python.org/3/tutorial/classes.html
 # Single underscores are a Python naming convention that indicates a name is meant for internal use. It is generally not enforced by the Python interpreter and is only meant as a hint to the programmer.
 
 # Class methods / types
@@ -415,9 +416,11 @@ http://www.pythoncentral.io/introduction-to-python-classes/
 
 class Alphabet:
     _myvar = 'this is private var'
+    kind = 'canine'         # class variable shared by all instances
 
     def __init__(self, value):
         self._value = value
+        self.name = name    # instance variable unique to each instance
 
     def __repr__(self):
         return '<User %r>' % self.name

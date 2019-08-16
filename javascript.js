@@ -39,8 +39,8 @@ let users = [
 	{id: '0004', name: 'emir'},
 ];
 let find_user = users.find( user => user.id == '0002' );
-	// find_user:
-	// {id: "0002", name: "jose"}
+// find_user:
+// {id: "0002", name: "jose"}
 
 
 // get index of item to find (array of objects)
@@ -51,8 +51,8 @@ let users = [
 	{id: '0004', name: 'emir'},
 ];
 let find_index = users.findIndex( user => user.id == '0002' );
-	// find_index:
-	// 1
+// find_index:
+// 1
 
 
 // check string in array of strings
@@ -87,43 +87,43 @@ var n = str.indexOf("welcome");
 // GET
 let url = API_SERVER + '/mobile/licenses'
 axios.get(url)
-	.then(response => {
-		this.licenses = response.data.licenses
-	})
-	.catch(error => {
-		console.log(error)
-		this.isFetchError = true
-	})
-	.finally(() => this.isLoading = false )
+.then(response => {
+	this.licenses = response.data.licenses
+})
+.catch(error => {
+	console.log(error)
+	this.isFetchError = true
+})
+.finally(() => this.isLoading = false )
 
-	// Optionally the request above could also be done as
-	axios.get(url, {
-		params: {
-			ID: 12345
-		}
-	})
-	.then(response => {
-		this.licenses = response.data.licenses
-	})
-	.catch(error => {
-		console.log(error)
-		this.isFetchError = true
-	})
-	.finally(() => this.isLoading = false )
+// Optionally the request above could also be done as
+axios.get(url, {
+	params: {
+		ID: 12345
+	}
+})
+.then(response => {
+	this.licenses = response.data.licenses
+})
+.catch(error => {
+	console.log(error)
+	this.isFetchError = true
+})
+.finally(() => this.isLoading = false )
 
 // POST
 axios.post(url, {
-		firstName: 'Fred',
-		lastName: 'Flintstone'
-	})
-	.then(response => {
-		this.licenses = response.data.licenses
-	})
-	.catch(error => {
-		console.log(error)
-		this.isFetchError = true
-	})
-	.finally(() => this.isLoading = false )
+	firstName: 'Fred',
+	lastName: 'Flintstone'
+})
+.then(response => {
+	this.licenses = response.data.licenses
+})
+.catch(error => {
+	console.log(error)
+	this.isFetchError = true
+})
+.finally(() => this.isLoading = false )
 //------------------------------------------------------------------------------------
 
 // arrow functions
@@ -147,9 +147,9 @@ axios.post(url, {
 
 // # JSON
 // a) To String
-     JSON.stringify(user_acl)
+JSON.stringify(user_acl)
 // b) To Object
-     JSON.parse(sel_acl)
+JSON.parse(sel_acl)
 //------------------------------------------------------------------------------------
 
 // # Check if key in json var
@@ -158,7 +158,7 @@ if (resp.hasOwnProperty('error')) {}
 
 // # Sleep
 setTimeout(function() {
-    $("#main_content").load("/pre_config/function.php?type="+type+"piz&count=1", successCallback );
+	$("#main_content").load("/pre_config/function.php?type="+type+"piz&count=1", successCallback );
 }, 3000);
 //------------------------------------------------------------------------------------
 
@@ -197,24 +197,24 @@ myArray.forEach(function(item, index) {
 // loop objects
 var object1 = {a: 1, b: 2, c: 3};
 for (var property1 in object1) {
-    console.log(property1, object1[property1]);
+	console.log(property1, object1[property1]);
 }
 //------------------------------------------------------------------------------------
 
 // string utilities
 // <script data-script-name="string utilities">
-    String.prototype.format=function(){var a=arguments;return this.replace(/\{(\d+)\}/g,function(m,n){return a[n];});};
-    String.prototype.jinjaFormat=function(){var a=arguments[0],z=arguments[1];return (a===undefined)?this:(a.constructor===Object)?(this.replace(/\{\{ *[a-zA-Z0-9_.]+ *\}\}/g,function(x){var k=x.replace(/\{|\}|\ /g, '').split('.'),b=a;while(k.length&&(b=b[k.shift()]));return (b===undefined && z!==undefined)?z:b;})):this;};
-    String.prototype.titleCase=function(){var s=this.toLowerCase().split(' ');for(var i=0;i<s.length; i++){s[i]='{0}{1}'.format(s[i].charAt(0).toUpperCase(),s[i].slice(1));}return s.join(' ');};
-    String.prototype.in=function(){return (arguments[0]===undefined)?false:(arguments[0].constructor===Array)?(arguments[0].indexOf(String(this))===-1)?false:true:false;};
+String.prototype.format=function(){var a=arguments;return this.replace(/\{(\d+)\}/g,function(m,n){return a[n];});};
+String.prototype.jinjaFormat=function(){var a=arguments[0],z=arguments[1];return (a===undefined)?this:(a.constructor===Object)?(this.replace(/\{\{ *[a-zA-Z0-9_.]+ *\}\}/g,function(x){var k=x.replace(/\{|\}|\ /g, '').split('.'),b=a;while(k.length&&(b=b[k.shift()]));return (b===undefined && z!==undefined)?z:b;})):this;};
+String.prototype.titleCase=function(){var s=this.toLowerCase().split(' ');for(var i=0;i<s.length; i++){s[i]='{0}{1}'.format(s[i].charAt(0).toUpperCase(),s[i].slice(1));}return s.join(' ');};
+String.prototype.in=function(){return (arguments[0]===undefined)?false:(arguments[0].constructor===Array)?(arguments[0].indexOf(String(this))===-1)?false:true:false;};
 // </script>
 // <script data-script-name="object utilities">
-    "function"!=typeof Object.assign&&Object.defineProperty(Object,"assign",{value:function(e,t){"use strict";if(null==e)throw new TypeError("Cannot convert undefined or null to object");for(var n=Object(e),r=1;r<arguments.length;r++){var o=arguments[r];if(null!=o)for(var c in o)Object.prototype.hasOwnProperty.call(o,c)&&(n[c]=o[c])}return n},writable:!0,configurable:!0});
-    function merge_objects(b,t){if(b.constructor===Object&&t.constructor===Object){for(p in t){if(b.hasOwnProperty(p)){b[p]=merge_objects(b[p],t[p])}else{b[p]=t[p];}}}else{b=t;}return b;}
+"function"!=typeof Object.assign&&Object.defineProperty(Object,"assign",{value:function(e,t){"use strict";if(null==e)throw new TypeError("Cannot convert undefined or null to object");for(var n=Object(e),r=1;r<arguments.length;r++){var o=arguments[r];if(null!=o)for(var c in o)Object.prototype.hasOwnProperty.call(o,c)&&(n[c]=o[c])}return n},writable:!0,configurable:!0});
+function merge_objects(b,t){if(b.constructor===Object&&t.constructor===Object){for(p in t){if(b.hasOwnProperty(p)){b[p]=merge_objects(b[p],t[p])}else{b[p]=t[p];}}}else{b=t;}return b;}
 // </script>
 // <script data-script-name="csrf protection">
-    var csrf_key = '{{ session["csrf_key"] }}';
-    var csrf_token = '{{ session["csrf_token"] }}';
+var csrf_key = '{{ session["csrf_key"] }}';
+var csrf_token = '{{ session["csrf_token"] }}';
 // </script>
 
 
@@ -228,23 +228,26 @@ let a = `account created for ${user.email}`
 //------------------------------------------------------------------------------------
 
 // promise test (https://codeburst.io/a-simple-guide-to-es6-promises-d71bacd2e13a)
-function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) ) + min;
-}
-const myPromise = new Promise((resolve, reject) => {
-  if (getRndInteger(1, 2) < 2) {
-    resolve('Hello, Promises!');
-  }
-  reject(new Error('In 50% of the cases, I fail. Miserably.'));
+const promise1 = new Promise((resolve, reject) => {
+	setTimeout(() => {
+		const raffle = Math.round(Math.random());
+		if (raffle == 1)
+		resolve('resolved!');
+		else
+		reject('rejected!');
+	}, 1500);
 });
 
-myPromise.then((value) => {
-  console.log(value);
-  // expected output: "Hello, Promises!"
-}).catch((reason) => {
-  console.log(reason);
-  // expected output: object type  (ex: [object Error] { ... })
-});
+promise1
+	.then((value) => {
+		console.log(value);
+	})
+	.catch((value) => {
+		console.log(value);
+	})
+	.finally(() => {
+		console.log('finally:');
+	});
 //------------------------------------------------------------------------------------
 
 // Random generator
@@ -253,7 +256,7 @@ Math.floor(Math.random() * 10);     // returns a random integer from 0 to 9
 Math.floor(Math.random() * 10) + 1;  // returns a random integer from 1 to 10
 
 function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) ) + min;
+	return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 //------------------------------------------------------------------------------------
 
@@ -266,9 +269,9 @@ projects.push({
 //------------------------------------------------------------------------------------
 
 /* *******************************************************************************************
- * GLOBAL OBJECTS > OBJECT
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
- * ******************************************************************************************* */
+* GLOBAL OBJECTS > OBJECT
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+* ******************************************************************************************* */
 
 // Global object: properties
 Object.length                                        // length is a property of a function object, and indicates how many arguments the function expects, i.e. the number of formal parameters. This number does not include the rest parameter. Has a value of 1.
@@ -310,9 +313,9 @@ obj.toString()                                       // Returns a string represe
 object.valueOf()                                     // Returns the primitive value of the specified object.
 
 /* *******************************************************************************************
- * GLOBAL OBJECTS > ARRAY
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
- * ******************************************************************************************* */
+* GLOBAL OBJECTS > ARRAY
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+* ******************************************************************************************* */
 
 // Global object: properties
 Array.length                                         // Reflects the number of elements in an array.

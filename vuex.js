@@ -1,63 +1,108 @@
 // -----------------
-// vuejs-vuex.js
+// store.js
 // -----------------
 import Vue from 'vue'
 import Vuex from 'vuex'
+
 Vue.use(Vuex)
 
-const store = new Vuex.Store({
+export default new Vuex.Store({
     state: {
-        movies: [],
+        title: 'My Custom Title',
+        links: [
+            'http://google.com',
+            'http://coursetro.com',
+            'http://youtube.com'
+        ]
     },
     getters: {
-        movies: state => state.movies,
+        countLinks: state => state.links.length
     },
     mutations: {
-        setMovies (state, movies) {
-            state.movies = movies
+        ADD_LINK(state, link) {
+            state.links.push(link)
         },
+        REMOVE_LINK(state, link) {
+            state.links.splice(link, 1)
+        },
+        REMOVE_ALL(state) {
+            state.links = []
+        }
     },
     actions: {
-        getMovies (context) {
-            axios.get('/api/movies')
-                .then((movies) => {
-                    context.commit('setMovies', movies)
-                })
+        removeLink(context, link) {
+            context.commit('REMOVE_LINK', link)
         },
-    },
-})
-
-new Vue({
-    el: '#app',
-    store,
-    render: h => h(App)
+        removeAll({ commit }) { // this is called "argument destructuring"
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    commit('REMOVE_ALL')
+                    resolve()
+                }, 1500)
+            })
+        }
+    }
 })
 // ------------------------------------------------------------
 
 // -----------------
-// MovieActions.vue
+// HelloWorld.vue
 // -----------------
-<template lang="html">
-    <div>
-        <div v-for="m in movies">
-            <p>{{ m.name }}</p>
-            <p>{{ m.description }}</p>
-        </div>
+<template>
+    <div class="stats">
+        <h1>{{ title }}</h1>
+        <p>There are currently {{ countLinks }} links</p>
 
-        <div v-for="a in actors">
-            <p>{{ a.firstName }} {{ a.lastName }}</p>
-        </div>
+        <button v-on:click="removeAllLinks">Remove all links</button>
+        <p>{{ msg }}</p>
+
+        <form @submit.prevent="addLink">
+            <input class="link-input" type="text" placeholder="Add a Link" v-model="newLink" />
+        </form>
+
+        <ul>
+            <li v-for="(link, index) in links" v-bind:key="index">
+            {{ link }}
+            <button v-on:click="removeLinks(index)" class="rm">Remove</button>  <!-- Add this -->
+            </li>
+        </ul>
     </div>
 </template>
 
 <script>
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
+
 export default {
-    mounted () {
-        this.$store.dispatch('getMovies')
+    name: 'Stats',
+    data() {
+        return {
+            msg: '',
+            newLink: ''
+        }
     },
     computed: {
-        movies () {
-            this.$store.getters.movies
+        ...mapState([
+            'title',
+            'links'
+        ]),
+        ...mapGetters([
+            'countLinks'
+        ]),
+    },
+    methods: {
+        ...mapMutations(['ADD_LINK']),
+        ...mapActions(['removeAll', 'removeLink']),
+        removeAllLinks() {
+            this.removeAll().then(() => {
+                this.msg = 'They have been removed'
+            })
+        },
+        addLink () {
+            this.ADD_LINK(this.newLink)
+            this.newLink = ''
+        },
+        removeLinks (link) {
+            this.removeLink(link)
         }
     }
 }
