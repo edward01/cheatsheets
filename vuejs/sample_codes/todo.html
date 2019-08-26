@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Todo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="app">
+            <input v-model="fruit" type="text" />
+            <button @click="addFruit">Add Todo</button>
+
+            <ol>
+                <li v-for="(fruit, index) in fruits" :key="index">
+                    <fruit-item v-model="fruits[index]"></fruit-item>
+                    <button @click="deleteFruit(index)">Delete</button>
+                </li>
+            </ol>
+        </div>
+
+        <template id="fruit-item-template">
+            <span>
+                <span v-if="!editMode">
+                    {{ value }}
+                    <button @click="editMode = true">Edit</button>
+                </span>
+                <span v-else>
+                    <input type="text"
+                        v-bind:value="value"
+                        v-on:input="$emit('input', $event.target.value)"
+                    >
+                    <button @click="saveEdit">Save</button>
+                </span>
+            </span>
+        </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('fruit-item', {
+            template: '#fruit-item-template',
+            props: ['value'],
+            data() {
+                return { editMode: false }
+            },
+            methods: {
+                saveEdit() { this.editMode = false },
+            },
+        })
+
+        var app = new Vue({
+            el: '#app',
+            data: function() {
+                return {
+                    fruit: '',
+                    fruits: ['walk', 'sleep', 'jogging'],
+                }
+            },
+            methods: {
+                addFruit() {
+                    this.fruits.push(this.fruit);
+                    this.fruit = '';
+                },
+                deleteFruit(index) {
+                    this.$delete(this.fruits, index)
+                }
+            },
+        });
+    </script>
+    </body>
+</html>
