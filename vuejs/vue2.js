@@ -799,4 +799,4 @@ vm.$destroy()
 
 
 // <!-- Used for dynamic components and to work around limitations of in-DOM templates. -->
-// <component :is="currentView"></component>
+<component :is="currentView"></component>
