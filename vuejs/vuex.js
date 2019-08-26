@@ -81,13 +81,8 @@ export default {
         }
     },
     computed: {
-        ...mapState([
-            'title',
-            'links'
-        ]),
-        ...mapGetters([
-            'countLinks'
-        ]),
+        ...mapState(['title', 'links']),
+        ...mapGetters(['countLinks']),
     },
     methods: {
         ...mapMutations(['ADD_LINK']),

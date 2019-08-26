@@ -26,6 +26,10 @@ array_var.splice(index, 1);
 // delete item from array (by key value)
 let id_to_exclude = '0002';
 array_var = array_var.find( user => user.id != id_to_exclude );
+
+// delete property from object
+var Employee = { firstname: "John", lastname: "Doe" }
+delete Employee.firstname;
 //------------------------------------------------------------------------------------
 
 // typeof
@@ -184,6 +188,17 @@ console.log(c.split(','))
 // Give me a new array of all values multiplied by 10.
 let newArr = [5, 6, 7, 8, 900].map( x => x * 10 );
 // [50, 60, 70, 80, 9000]
+
+// Map array of objects
+let tableData = [
+	{firstName: 'edward', lastName: 'abd'},
+	{firstName: 'lincoln', lastName: 'def'},
+	{firstName: 'murphy', lastName: 'ghi'},
+]
+return tableData.map(item => {
+	item.lastName = 'jose'
+	return item
+})
 //---------------------------------------------
 
 // forEach
@@ -216,6 +231,12 @@ function merge_objects(b,t){if(b.constructor===Object&&t.constructor===Object){f
 var csrf_key = '{{ session["csrf_key"] }}';
 var csrf_token = '{{ session["csrf_token"] }}';
 // </script>
+
+// merge objects
+const emp = { "name": "Roy", "age": "30" }
+const empDetails = { "currentLocation": "Dubai", "country": "USA" }
+let result = { ...emp, ...empDetails }
+console.log(result);
 
 
 // trim string
