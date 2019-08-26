@@ -1,0 +1,58 @@
+<!-- $EMIT SAMPLE (https://codesandbox.io/s/0yo61k5zrl?fontsize=14) -->
+<!-- App.vue -->
+    <template>
+        <div id="app">
+            <MagicCounter v-model="num" />
+            The counter is set to {{ num }}
+        </div>
+    </template>
+
+    <script>
+        import MagicCounter from "./components/MagicCounter";
+
+        export default {
+            name: "App",
+            data() {
+                return {
+                    num: 1
+                };
+            },
+            components: {
+                MagicCounter
+            }
+        };
+    </script>
+
+<!-- MagicCounter.vue -->
+    <template>
+        <div>
+            <button @click="changeValue(value-1)">-</button>
+            {{ value }}
+            <button @click="changeValue(value+1)">+</button>
+        </div>
+    </template>
+
+    <script>
+        export default {
+            props: ["value"],
+            methods: {
+                changeValue(newVal) {
+                    this.$emit('input', newVal)
+                },
+            },
+        };
+
+        // -- or (use of custome event name, "modified") --
+
+        // export default {
+        //     props: ["value"],
+        //     model: {
+        //         event: "modified"
+        //     },
+        //     methods: {
+        //         changeValue(newVal) {
+        //             this.$emit("modified", newVal);
+        //         }
+        //     }
+        // };
+    </script>
