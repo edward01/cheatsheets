@@ -1,0 +1,20 @@
+src/
+    assets/
+        logo.png
+    components/
+        Navbar.vue
+    mixins/
+        appConfig.js
+    plugins/
+        vuetify.js
+        vuetoast.js
+    utils/
+        stringOperations.js
+    views/
+        Home.vue
+    App.vue
+    config.js
+    main.js
+    registerServiceWorker.js
+    router.js
+    store.js
