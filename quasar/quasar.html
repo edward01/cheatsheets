@@ -1,0 +1,140 @@
+<!-- COLOR PALLETE (https://quasar.dev/style/color-palette) -->
+  <!-- changing text color (https://quasar.dev/style/color-palette#Using-as-CSS-Classes) -->
+  <p class="text-primary">....</p>
+  <!-- changing background color -->
+  <p class="bg-positive">...</p>
+
+
+<!-- TYPOGRAPHY (https://quasar.dev/style/typography) -->
+  https://quasar.dev/style/typography
+  .text-h1
+  .text-subtitle1
+  .text-subtitle2
+  .text-weight-bold
+  .text-right
+  .text-capitalize
+
+
+<!-- SPACING CLASSES (https://quasar.dev/style/spacing) -->
+  <!-- small padding in all directions -->
+  <div class="q-pa-sm">...</div>
+  <!-- medium margin to top, small margin to right -->
+  <q-card class="q-mt-md q-mr-sm">...</q-card>
+  .q-mr-xs
+  <!--------------------------------------------------
+  q-[p|m][t|r|b|l|a|x|y]-[none|auto|xs|sm|md|lg|xl]
+  T D S
+
+  T - type
+  - values: p (padding), m (margin)
+
+  D - direction
+  - values:
+  t (top), r (right), b (bottom), l (left),
+  a (all), x (both left & right), y (both top & bottom)
+
+  S - size
+  - values:
+  none,
+  auto (ONLY for specific margins: q-ml-*, q-mr-*, q-mx-*),
+  xs (extra small),
+  sm (small),
+  md (medium),
+  lg (large),
+  xl (extra large)
+  -------------------------------------------------->
+
+<!-- ** FLEX ADDONS ** -->
+  .q-(p|m)(t|r|b|l|a|x|y)-<bp>-(none|auto|xs|sm|md|lg|xl)
+  Examples: q-pa-xs-md q-pa-sm-sm q-px-md-lg q-py-md-md
+
+
+<!-- SHADOWS (https://quasar.dev/style/shadows) -->
+  .shadow-1
+  .shadow-up-2
+
+
+<!-- BREAKPOINTS (https://quasar.dev/style/breakpoints) -->
+  xs, sm, md, lg, xl
+
+
+<!-- VISIBILITY/DISPLAY (https://quasar.dev/style/visibility) -->
+  .disabled
+  .sm           --> Display only on small windows
+  .mobile-only  --> Visible only on mobile
+  .mobile-hide  --> Hide on mobile
+
+
+<!-- POSITIONING (https://quasar.dev/style/positioning) -->
+  .fullscreen
+  .float-right
+  .on-right
+  .vertical-middle
+<!-- ============================================================================= -->
+
+
+<!-- LAYOUT PATTERN (https://quasar.dev/layout/page#Layout-Builder) -->
+<q-layout>
+  <q-header></q-header>
+  <q-drawer></q-drawer>
+  <q-footer></q-footer>
+
+  <q-page-container>
+    <transition name="fade" mode="out-in">
+      <router-view class="view">
+        <q-page>
+          <!-- page content -->
+        </q-page>
+      </router-view>
+    </transition>
+  </q-page-container>
+</q-layout>
+
+
+<!-- NAVBAR/TOOLBAR (https://quasar.dev/vue-components/toolbar#Installation) -->
+<q-toolbar class="bg-grey-3">
+  <q-btn flat round dense>
+    <q-icon name="menu" />
+  </q-btn>
+  <q-avatar>
+    <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
+  </q-avatar>
+  <q-toolbar-title>
+    Toolbar
+  </q-toolbar-title>
+</q-toolbar>
+
+
+<!-- SIDEBAR DRAWER (https://quasar.dev/layout/drawer#QDrawer-API) -->
+<q-drawer
+  v-model="leftDrawerOpen"
+  show-if-above
+  bordered
+  content-class="bg-grey-2"
+>
+  <q-list>
+    <!-- ... -->
+  </q-list>
+</q-drawer>
+
+
+<!-- ADD PAGE TRANSITION/ROUTER TRANSITION -->
+<q-page-container>
+  <transition name="fade" mode="out-in">
+    <router-view class="view"></router-view>
+  </transition>
+</q-page-container>
+
+
+<!-- LOGIN CARD (CENTERED) -->
+<q-page padding class="full-width row justify-center content-center">
+  <q-card class="text-center" flat>
+    Welcome!
+  </q-card>
+</q-page>
+<!-- OR -->
+<q-page padding class="full-width row justify-center content-center">
+  <q-card class="col-10 col-sm-6 col-lg-4">
+    <!-- ... -->
+  </q-card>
+</q-page>

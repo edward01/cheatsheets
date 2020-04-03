@@ -28,6 +28,7 @@ let id_to_exclude = '0002';
 array_var = array_var.find( user => user.id != id_to_exclude );
 
 // delete property from object
+// delete key from object
 var Employee = { firstname: "John", lastname: "Doe" }
 delete Employee.firstname;
 //------------------------------------------------------------------------------------
@@ -210,9 +211,15 @@ myArray.forEach(function(item, index) {
 //---------------------------------------------
 
 // loop objects
-var object1 = {a: 1, b: 2, c: 3};
-for (var property1 in object1) {
-	console.log(property1, object1[property1]);
+const object1 = {a: 1, b: 2, c: 3};
+for (let k in object1) {
+	console.log(k, object1[k]);
+}
+
+const markers = [{a: 1, b: 2}, {a: 2, b: 2}, {a: 3, b: 2}]
+// loop list of objects
+for (let m of markers) {
+	console.log(m)
 }
 //------------------------------------------------------------------------------------
 
