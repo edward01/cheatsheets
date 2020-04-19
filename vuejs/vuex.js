@@ -20,12 +20,6 @@ export default new Vuex.Store({
       { id: 3, title: 'Fahrenheit 451', available: false }
     ]
   },
-  getters: {
-    countLinks: state => state.links.length,
-    availableBooks: state => {
-      return state.books.filter(book => book.available);
-    }
-  },
 
   mutations: {
     ADD_LINK(state, link) {
@@ -38,12 +32,15 @@ export default new Vuex.Store({
       state.links = []
     },
     toggleAvailability(state, book) {
-      const index = state.books.findIndex(b => b.id === book.id);
-      state.books[index].available = !state.books[index].available;
+      const index = state.books.findIndex(b => b.id === book.id)
+      state.books[index].available = !state.books[index].available
     }
   },
 
   actions: {
+    // or removeLink({state}, link) {...}
+    // or removeLink({commit}, link) {...}
+    // or removeLink({state, commit}, link) {...}
     removeLink(context, link) {
       context.commit('REMOVE_LINK', link)
     },
@@ -68,7 +65,17 @@ export default new Vuex.Store({
       context.commit('setUnavailable', book);
       */
     }
-  }
+  },
+
+  getters: {
+    countLinks: state => state.links.length,
+    availableBooks: state => {
+      return state.books.filter(book => book.available);
+    },
+    sampleGetter1: (state, getters, rootState) => {
+      // rootState to access state of other modules (ex: rootState.navbar.isMinified)
+    }
+  },
 })
 // ------------------------------------------------------------
 
@@ -114,7 +121,8 @@ export default {
   computed: {
     ...mapState(['title', 'links']),
     ...mapGetters(['countLinks']),
-    // or with modules
+
+    /* // or with modules */
     ...mapState('user', ['addresses', 'creditCards']),
     ...mapState('vendor', ['products', 'ratings']),
 
@@ -135,12 +143,14 @@ export default {
     ...mapMutations('navbar', ['setMiniSideBar', 'setSelectedDepartment']),
 
     removeAllLinks() {
+      // manual action code: this.$store.dispatch('removeAll')
       this.removeAll().then(() => {
         this.msg = 'They have been removed'
       })
     },
     addLink() {
       this.ADD_LINK(this.newLink)
+      // manual mutation code: this.$store.commit('ADD_LINK', this.newLink)
       this.newLink = ''
     },
     removeLinks(link) {

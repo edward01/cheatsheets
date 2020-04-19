@@ -1,3 +1,4 @@
+https://github.com/Code-Pop/real-world-vue
 https://github.com/vuejs/vue-hackernews-2.0/tree/master/src
 https://github.com/mchandleraz/realworld-vue/tree/master/src
 
@@ -6,13 +7,18 @@ https://github.com/mchandleraz/realworld-vue/tree/master/src
 ├── assets
 │   └── ...
 ├── components
-│   ├── TheHeader.vue
-│   ├── TheFooter.vue
+│   ├── layout
+│   │   ├── TheHeader.vue
+│   │   ├── TheFooter.vue
+│   ├── ui
+│   │   ├── AppButton.vue
+│   │   ├── AppList.vue
 │   └── ...
 ├── mixins
 │   └── ...
 ├── plugins
 │   ├── index.js
+│   ├── axios.js
 │   └── ...
 ├── router
 │   ├── index.js
@@ -31,12 +37,19 @@ https://github.com/mchandleraz/realworld-vue/tree/master/src
 │   ├── layout
 │   │   ├── TheBase.vue
 │   │   └── ...
+│   ├── ArticlePage
+│   │   ├── index.vue
+│   │   ├── ArticleTitle.vue
+│   │   ├── ArticleList.vue
+│   │   └── ...
+│   ├── UserPage.vue
 │   └── ...
 
 
 ├── constants
 │   └── ...
-├── api
+├── services   # this is the api folder
+│   ├── EventService.js
 │   └── ...
 ├── translations
 │   └── index.js
