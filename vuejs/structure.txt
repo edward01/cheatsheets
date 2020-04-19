@@ -1,0 +1,77 @@
+https://github.com/vuejs/vue-hackernews-2.0/tree/master/src
+https://github.com/mchandleraz/realworld-vue/tree/master/src
+
+├── App.vue
+├── main.js
+├── assets
+│   └── ...
+├── components
+│   ├── TheHeader.vue
+│   ├── TheFooter.vue
+│   └── ...
+├── mixins
+│   └── ...
+├── plugins
+│   ├── index.js
+│   └── ...
+├── router
+│   ├── index.js
+│   ├── modules
+│   │   └── ...
+├── store
+│   ├── index.js
+│   ├── modules
+│   │   └── ...
+│   └── mutation-types.js
+├── utils
+│   ├── constants.js
+│   ├── filters.js
+│   └── ...
+├── views
+│   ├── layout
+│   │   ├── TheBase.vue
+│   │   └── ...
+│   └── ...
+
+
+├── constants
+│   └── ...
+├── api
+│   └── ...
+├── translations
+│   └── index.js
+=============================================================================
+
+1. Dumb components:
+    - VCard
+2. Smart components:
+    - ProfileCard
+    - ItemCard
+3. Smarter components:
+    - DashboardStatistics
+    - SearchResults
+    - UserProfile
+4. Used-only-once components:
+    - TheNavbar
+    - TheFooter
+5. Parent-child components:
+    - UserCard
+    - UserCardPhoto
+
+** Example **
+components/
+    layout/
+        AppFooter.vue
+        AppHeader.vue
+    ui/
+        AppButton.vue
+        AppList.vue
+    ArticleList.vue
+views/
+    ArticlePage/
+        index.vue
+        ArticleTitle.vue
+        LastArticlesSection.vue
+    UserPage.vue
+=============================================================================
+
