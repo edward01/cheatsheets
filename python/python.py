@@ -1,5 +1,16 @@
 # Snippets
-https://snippets.readthedocs.io/en/latest/
+# https://snippets.readthedocs.io/en/latest/
+
+# Script with input
+def script_with_input():
+    user_input = input('Enter a hex number: ')
+    try:
+        hexval = int(user_input, 12)
+        print 'That is a valid hex value.'
+    except Exception as e:
+        print e
+        print 'That is an invalid hex value.'
+
 
 # For loop to 10
 for i in range(10):
@@ -301,15 +312,6 @@ print 'Argument List:', sys.argv
 
 # Python Testing
 https://laysrodriguesdev.wordpress.com/2017/06/28/how-to-play-around-with-python-and-mock/
-
-# Script with input
-user_input = input('Enter a hex number: ')
-try:
-    hexval = int(user_input, 12)
-    print 'That is a valid hex value.'
-except Exception as e:
-    print e
-    print 'That is an invalid hex value.'
 
 # Root Path
 import os
