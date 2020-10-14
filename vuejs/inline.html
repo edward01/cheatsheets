@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Component Lesson</title>
+</head>
+<body>
+    <div id="app">
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+    </div>
+
+    <script type="text/x-template" id="click-counter-template">
+    <div>
+        <p>the count is:</p>
+        <button @click="count++">{{count}}</button>
+    </div>
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('button-counter', {
+            // template: '<button v-on:click="count++">{{ count }}</button>',
+            template: '#click-counter-template',
+            data () {
+                return {
+                    count: 0
+                }
+            },
+        });
+
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                foo: 'bar',
+            },
+        })
+    </script>
+</body>
+</html>
